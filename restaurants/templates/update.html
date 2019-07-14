@@ -6,5 +6,13 @@
     </head>
     <body>
 
+ 			<form action="{% url 'restaurant-update' restaurant.id %}" method="POST">
+ 				<!-- ^^ when we press the button, which page do you want to redirect to? In this case -->
+<!-- We write ID here because (look at URLS.py) the path is expecting a variable.. Thats what ID is (the key is the id) -->
+<!-- restaurant.id is to access the id of the restaurant object which we are getting from the context dictionary when we pass it -->
+            {% csrf_token %}
+            {{form.as_p}}
+            <button>Update</button>
+            <input type="submit" value="update">
     </body>
 </html>
